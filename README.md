@@ -33,4 +33,13 @@ git merge new-branch
 
 git branch -d reg
 git checkout register
+
+# git push branch
+git push -u origin payment:pay
+git push -u origin payment
+
+git remote show origin
+
+git checkout -b payment origin/pay
+git push origin --delete pay
 ```
