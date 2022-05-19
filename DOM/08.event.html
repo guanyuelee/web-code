@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>Original Event Register</button>
+    <button>Listener Event Register</button>
+    <button>Pre-IE9 Event Register</button>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <script>
+        var btns = document.querySelectorAll('button')
+        btns[0].onclick = function(){
+            alert('First Hi')
+        }
+        btns[0].onclick = function(){
+            alert('Second Hi')
+        }
+        
+        btns[1].addEventListener('click', function() {
+            alert('First Hello')
+        })
+        btns[1].addEventListener('click', function(){
+            alert('Second Hello')
+        })
+
+        var divs = document.querySelectorAll('div')
+        divs[0].onclick = function(){
+            alert(1)
+            divs[0].onclick = null
+        }
+        divs[1].addEventListener('click', fn)
+        
+        function fn(){
+            alert(22);
+            divs[1].removeEventListener('click', fn)
+        }
+    </script>
+
+</body>
+</html>

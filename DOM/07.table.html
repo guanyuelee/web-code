@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            margin: 50px auto;
+            width: 500px;
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: gray;
+            height: 40px;
+        }
+        thead tr th{
+           border: 1px solid black; 
+        }
+
+        tbody tr {
+            height: 30px;
+            text-align: center;
+            /* border-bottom: 1px solid black; */
+        }
+
+        tbody tr td {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var dataList = [
+            {name: "Guanyue Li", subject: 'Javascript', score: 100}, 
+            {name: "Xinyi Pang", subject: 'Javascript', score: 90}, 
+            {name: "Kankan Na", subject: 'Javascript', score: 55}
+        ];
+        
+        var tbody = document.querySelector('tbody');
+
+        for(var i=0; i<dataList.length; i++){
+            var newRow = document.createElement('tr');
+
+            for(var k in dataList[i]){
+                var newItem = document.createElement('td');
+                console.log(k)
+                newItem.innerText = dataList[i][k]
+                newRow.appendChild(newItem);
+            }
+            var newItem = document.createElement('td');
+            newItem.innerHTML = '<a href="javascript:;"> Delete </a>';
+            newRow.appendChild(newItem);
+            tbody.appendChild(newRow)
+        }
+        var as = document.querySelectorAll('a'); 
+            console.log(as)
+            for(var i=0; i<as.length; i++){
+                as[i].onclick = function(){
+                    var locRow = this.parentNode.parentNode;
+                    tbody.removeChild(locRow);
+                }
+            }
+
+    </script>
+</body>
+</html>

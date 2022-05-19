@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: rgb(63, 63, 63);
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 5px;
+            color: white;
+            font-family: 微软雅黑;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="hour">1</div>
+    <div class="minute">2</div>
+    <div class="second">3</div>
+
+    <script>
+        var hour = document.querySelector('.hour')
+        var minute = document.querySelector('.minute')
+        var second = document.querySelector('.second')
+        var inputTime = +new Date('2022-5-17 18:00:00')
+        console.log(inputTime)
+
+        function getTime() {
+            var newTime = +new Date()
+            var diff = (inputTime - newTime) / 1000
+            console.log(diff)
+            var d = parseInt(diff / 60 / 60 / 24)
+            d = d < 10 ? '0'+ d : d
+            var h = parseInt(diff / 60 / 60 % 24)
+            h = h < 10 ? '0'+ h : h
+            var m = parseInt(diff / 60 % 60)
+            m = m < 10 ? '0'+ m : m
+            var s = parseInt(diff % 60)
+            s = s < 10 ? '0'+ s : s
+
+            hour.innerHTML = h
+            minute.innerHTML = m
+            second.innerHTML = s
+        }
+        setInterval(getTime, 1000)
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab List</title>
+    <style>
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background-color: #f7f7f7;
+            border: 1px solid #eeeeee;
+            border-bottom: 1px solid #e4393c;
+            height: 38px;
+        }
+
+        .header ul {
+            list-style: none;
+            float: left;
+            color: #555555; 
+        }
+
+        .current {
+            background-color: #e4393c;
+            color: #ffffff;
+        }
+
+        .header>ul>li {
+            float: left;
+            line-height: 36px;
+            padding: 0 25px;
+            font-size: 12px;
+        }
+        
+        ol { 
+            padding: 25px 25px;
+            list-style: none;
+            color: #555555;
+            font-size: 12px;
+            
+        }
+
+        a{
+            text-decoration: none; 
+        }
+
+        .content{
+            background-color: #ffffff;
+        }
+
+        p {
+            font-size: 12px;
+            color: #999999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix::before, 
+        .clearfix::after {
+            content: '';
+            display: table;
+        }
+        .clearfix::after{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header clearfix">
+            <ul class="tab_list">
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+            </ul>
+        </div>
+        <div class="content">
+            <ol class="content_list">
+                <li>
+                    <p>内容1</p>
+                </li>
+                <li>
+                    <p>内容2</p>
+                </li>
+                <li>
+                    <p>内容3</p>
+                </li>
+                <li>
+                    <p>内容4</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        var tab_list = document.querySelector('.tab_list')
+        var lis = tab_list.querySelectorAll('li')
+        var contents = document.querySelector('.content_list')
+        var items = contents.querySelectorAll('li')
+        
+        for(var i=0; i<lis.length; i++){
+            lis[i].setAttribute('index', i)
+            items[i].style.display = 'none'
+            // onclick function
+            lis[i].onclick = function() {
+                for(var i=0; i<lis.length; i++){
+                    lis[i].className = ''
+                }
+                this.className = 'current'
+
+                var index = this.getAttribute('index')
+                console.log(index)
+
+                for(var i=0; i<lis.length; i++){
+                    items[i].style.display='none'
+                }
+                items[index].style.display='block'
+                items[index].innerText = "您好，这个是\"" + this.innerText + '\"的内容'
+            }
+        }
+        items[0].style.display = 'block'
+        items[0].innerText = "您好，这个是\"" + lis[0].innerText + '\"的内容'
+    </script>
+
+</body>
+</html>

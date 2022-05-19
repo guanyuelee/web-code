@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>这是一个delegation1</li>
+        <li>这是一个delegation2</li>
+        <li>这是一个delegation3</li>
+        <li>这是一个delegation4</li>
+        <li>这是一个delegation5</li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e){
+            // alert('should have an alert. ');
+            // console.log(e.target);
+            e.target.style.backgroundColor = 'pink';
+            console.log(e)
+            console.log(e.target.style.backgroundColor)
+        }, false)
+    </script>
+</body>
+</html>
