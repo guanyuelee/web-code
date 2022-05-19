@@ -17,5 +17,11 @@ module.exports = {
         filename: 'main.js'
     }, 
     // plugin array
-    plugins: [htmlPlugin]
+    plugins: [htmlPlugin],
+
+    devServer: {
+        open: true, 
+        host: 'localhost', 
+        port: 80
+    }
 }
