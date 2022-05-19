@@ -30,4 +30,7 @@ git checkout new-branch
 
 git branch main
 git merge new-branch
+
+git branch -d reg
+git checkout register
 ```
