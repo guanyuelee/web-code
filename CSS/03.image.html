@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, h2 {
+            color: rgb(2, 2, 90);
+        }
+    </style>
+</head>
+<body>
+    <h1>Xenoblade2</h1>
+    <a href="https://en.wikipedia.org/wiki/Xenoblade_Chronicles_2"><b>Introduction</b></a>
+    <br>
+    <img src="./img/08.jpg" alt="my screen background" title="Xenoblade2 Homura" width=800 >
+    <br>
+    <audio src="./audio/drifting_soul.mp3" controls loop width="800"></audio>
+    <br>
+    <video src="./video/file_example_MP4_1920_18MG.mp4" width=800 controls autoplay muted></video>
+    <br>
+    <h2>人物列表</h2>
+    <ul>
+        <li>Rex</li>
+        <li>Homura</li>
+        <li>Hikari</li>
+        <li>Nia</li>
+    </ul>
+    <br>
+    <h2>人物列表</h2>
+    <ol>
+        <li>Rex</li>
+        <li>Homura</li>
+        <li>Hikari</li>
+        <li>Nia</li>
+    </ol>
+    <br>
+    <dl> <!-- definition list -->
+        <dt> <strong>游戏</strong> </dt> <!-- definition title -->
+        <dd> 试玩 </dd> <!-- definition description -->
+        <dd> 资料 </dd>
+
+        <dt> <strong>游戏</strong> </dt>
+        <dd> 试玩2 </dd>
+        <dd> 资料2 </dd>
+    </dl>
+    <br>
+    <table border="1", width="800">
+        <caption> <strong>Actors</strong> </caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody height="100">
+            <tr>
+                <td><center> Rex </center></td>
+                <td rowspan="2"><center> 80 </center></td>
+                <td><center> Drinks </center></td>
+            </tr>
+            <tr>
+                <td><center> Rex3 </center></td>
+                <td><center> Drinks </center></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><center> Rex2 </center></td>
+                <td colspan="2"><center> 802 </center></td>
+            </tr>
+        </tfoot>
+    </table>
+    <h2>Input</h2>
+    <form action="">
+        Name: <input type="text" placeholder="your name">
+        <br>
+        Email: <input type="email" placeholder="email">
+        <br>
+        Password: <input type="password" placeholder="password">
+        <br>
+        Gender: <input type="radio" name="gender" checked> Male <input type="radio" name="gender"> Female 
+        <br>
+        Gender2: <label> <input type="radio" name="gender2" checked> Male </label>
+                 <label> <input type="radio" name="gender2"> Female </label> 
+        <br>
+        Agree: <input type="checkbox">
+        <br>
+        File: <input type="file" multiple>
+        <br>
+        <input type="submit" value="免费注册">
+        <input type="reset">
+    </form>
+
+    <br>
+    <select name="" id="" >
+        <option value="">Beijing</option>
+        <option value="" selected>Guangzhou</option>
+        <option value="">Shanghai</option>
+        <option value="">Shenzhen</option>
+    </select>
+    <br>
+    <br>
+    <form action="">
+        <textarea name="" id="" cols="80" rows="10" placeholder="Your opinion..."></textarea>
+        <br>
+        <button type="submit">提交按钮</button>
+        <button type="reset">重置按钮</button>
+    </form>
+    <br>
+    <h2>Div & Span</h2>
+    <div> This is a div </div>
+    <div> This is a div </div>
+    <span> This is a span </span>
+    <span> This is a span </span>
+    <div> This is &nbsp; a div </div>
+</body>
+</html>

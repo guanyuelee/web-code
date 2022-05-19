@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>Show</button>
+    <button>Hide</button>
+    <button>Toggle</button>
+    <div></div>
+
+    <script>
+        $(function(){
+            $("button").eq(0).click(()=>{
+                $("div").show(500, function(){
+                    //alert("Animation is shown. ")
+                });
+            })
+
+            $("button").eq(1).click(()=>{
+                $("div").hide(500, function(){
+                    //alert("Animation is over. ")
+                });
+            })
+
+            $("button").eq(2).click(()=>{
+                $("div").toggle(500, function(){
+                    //alert("Animation is over. ")
+                });
+            })
+
+        })
+    </script>
+</body>
+</html>

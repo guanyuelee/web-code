@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button>Slide Down</button>
+    <button>Slide Up</button>
+    <button>Toggle</button>
+    <div></div>
+
+    <script>
+        $(function(){
+            $("button").eq(0).click(()=>{
+                $("div").slideDown(500);
+            })
+
+            $("button").eq(1).click(()=>{
+                $("div").slideUp(500);
+            })
+
+            $("button").eq(2).click(()=>{
+                $("div").slideToggle(500);
+            })
+        })
+    </script>
+</body>
+</html>

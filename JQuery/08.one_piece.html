@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        .wrapper2 {
+            width: 1000px;
+            height: 10px;
+            background-color: gray;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            width: 1000px;
+            background-color: gray;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .list {
+            list-style: none;
+        }
+
+        .list li {
+            /* position: relative; */
+            float: left;
+            position: relative;
+            height: 100px;
+            width: 100px;
+            margin: 1px;
+        }
+
+        .list li a {
+            height: 100px;
+        }
+
+        .current {
+            width: 203px !important;
+        }
+
+        .list li.current a .icon {
+            display: none;
+        }
+
+        .list li.current a .detail {
+            display: block;
+        }
+
+        .detail {
+            height: 100px;
+            width: 203px;
+            position: absolute;
+            left: 0px;
+            display: none;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            z-index: 1;
+            position: absolute;
+            left: 0px;
+        }
+
+        .clearfix::before,
+        .clearfix::after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="list clearfix">
+            <li><a href="#"><img src="./img/01.png" class="icon" alt="menbers"><img src="./img/wide_01.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/02.png" class="icon" alt="menbers"><img src="./img/wide_02.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/03.png" class="icon" alt="menbers"><img src="./img/wide_03.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/04.png" class="icon" alt="menbers"><img src="./img/wide_04.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/05.png" class="icon" alt="menbers"><img src="./img/wide_05.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/06.png" class="icon" alt="menbers"><img src="./img/wide_06.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/07.png" class="icon" alt="menbers"><img src="./img/wide_07.png" class="detail"
+                        alt="luffy"></a></li>
+            <li><a href="#"><img src="./img/08.png" class="icon" alt="menbers"><img src="./img/wide_08.png" class="detail"
+                        alt="luffy"></a></li>
+        </ul>
+    </div>
+
+    <script>
+        $(function () {
+            $(".list").children("li").hover(function () { 
+                $(this).stop().animate({width: 203}, 500).find('.icon').stop().fadeOut().siblings(".detail").stop().fadeIn();
+            }, function () { 
+                $(this).stop().animate({width: 100}, 500).find('.icon').stop().fadeIn().siblings(".detail").stop().fadeOut();
+            })
+        })
+    </script>
+
+</body>
+
+</html>

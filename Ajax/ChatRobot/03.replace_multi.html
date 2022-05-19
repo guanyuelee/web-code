@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '<div>{{name}} is {{ age }} years old. </div>'
+        var pattern = /{{\s*([a-zA-Z]+)\s*}}/
+        
+        /* var results = pattern.exec(str)
+        str = str.replace(results[0], results[1])
+        console.log(str)
+
+        results = pattern.exec(str)
+        str = str.replace(results[0], results[1])
+        console.log(str) */
+
+        var results = null
+        while(results = pattern.exec(str)){
+            str = str.replace(results[0], results[1])
+        }
+        console.log(str)
+
+    </script>
+</body>
+</html>

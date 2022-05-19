@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'hello'
+        var pattern = /o/
+        var results = pattern.exec(str)
+        console.log(results)
+
+        var str2 = '<div>我是{{GuanyueLi}}</div>'
+        var pattern2 = /{{([a-zA-Z]+)}}/
+        var results2 = pattern2.exec(str2)
+        console.log(results2)
+
+        var replaceRes = str2.replace(results2[0], "Bruce Lee")
+        console.log(replaceRes)
+    </script>
+</body>
+</html>
