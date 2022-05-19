@@ -27,4 +27,7 @@ git branch -M main # rename the branch
 
 git branch new-branch
 git checkout new-branch
+
+git branch main
+git merge new-branch
 ```
