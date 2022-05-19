@@ -17,9 +17,14 @@ git reset --hard <id>
 git reflog --pretty=oneline
 
 git remote add origin https://github.com/guanyuelee/web-code.git
-
 git branch -M main
-
 git push -u origin main
 
+# branch related. 
+
+git branch
+git branch -M main # rename the branch
+
+git branch new-branch
+git checkout new-branch
 ```

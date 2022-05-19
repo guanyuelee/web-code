@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <canvas id="colock" width="200" height="200" >           
+        </canvas>
+    </body>
+</html>
+<script type="text/javascript">
+function displayTime(){
+        //获取当前时间
+    var now=new Date();
+    //获取时分秒
+    var h=now.getHours();
+    var m=now.getMinutes();
+    var s=now.getSeconds();
+    var c=document.getElementById("colock");
+    var cxt=c.getContext("2d");
+    cxt.clearRect(0,0,200,200);
+    //画表盘
+    cxt.beginPath();
+    cxt.arc(100,100,95,0,2*Math.PI);
+    cxt.lineWidth="10";
+    cxt.fillStyle="#e4e6e5";
+    cxt.fill();
+    cxt.strokeStyle="#48bd4d";
+    cxt.stroke();
+    cxt.closePath();
+    //画表心
+    cxt.beginPath();
+    cxt.arc(100,100,3,0,2*Math.PI);
+    cxt.fillStyle="red";
+    cxt.fill();
+    cxt.closePath();
+    //时刻度
+    for(var i=0;i<12;i++){
+        cxt.save();
+        cxt.translate(100,100);
+        cxt.rotate(30*i*Math.PI/180);  
+        cxt.save();
+        cxt.lineWidth="3";
+        cxt.strokeStyle="black";
+        cxt.stroke();
+        cxt.beginPath();
+        cxt.moveTo(0,-90);
+        cxt.lineTo(0,-80);
+        cxt.closePath();         
+        cxt.restore();
+        cxt.translate(0,-75);  
+        cxt.rotate(-30*i*Math.PI/180);
+        //设置字体样式
+        cxt.font = "15px Courier ";
+        //设置字体填充颜色
+        cxt.fillStyle ="black";    
+        //从坐标点(50,50)开始绘制文字
+        if(i==0)
+        {
+              cxt.fillText(12, -6, 4);
+        }
+        else{
+              cxt.fillText(i, -6, 4);                      
+        }
+ 
+        cxt.restore();
+}
+    //画分刻度
+    for(var j=0;j<60;j++){
+        cxt.save();
+        cxt.translate(100,100);
+        cxt.rotate(6*j*Math.PI/180);
+        cxt.lineWidth="1";
+        cxt.beginPath();
+        cxt.strokeStyle="black";
+        cxt.moveTo(0,-90);
+        cxt.lineTo(0,-85);
+        cxt.closePath();
+        cxt.stroke();
+        cxt.restore();
+    }
+    //指针（秒针最长最细，时针最短最粗）
+    //先根据当前的时间确定秒针的位置
+    cxt.save();
+    cxt.translate(100,100);
+    cxt.rotate(6*s*Math.PI/180);
+    cxt.lineWidth="1";
+    cxt.beginPath();
+    cxt.moveTo(0,-80);
+    cxt.lineTo(0,-3);
+    cxt.strokeStyle="red";
+    cxt.closePath();
+    cxt.stroke();
+    cxt.restore();
+    //确定分针的位置，分针一秒钟走0.1°
+    cxt.save();
+    cxt.translate(100,100);
+    cxt.rotate(6*m*Math.PI/180);
+    cxt.rotate(0.1*s*Math.PI/180);
+    cxt.lineWidth="2";
+    cxt.beginPath();
+    cxt.moveTo(0,-65);
+    cxt.lineTo(0,-3);
+    cxt.strokeStyle="black";
+    cxt.closePath();
+    cxt.stroke();
+    cxt.restore();
+    //确定时针的位置，时针一分钟走0.5°，时针一秒走1/120°
+    cxt.save();
+    cxt.translate(100,100);
+    cxt.rotate(30*h*Math.PI/180);
+    cxt.rotate(0.5*m*Math.PI/180);
+    cxt.rotate((1/120)*m*Math.PI/180);
+    cxt.lineWidth="4";
+    cxt.beginPath();
+    cxt.moveTo(0,-45);
+    cxt.lineTo(0,-3);
+    cxt.strokeStyle="black";
+    cxt.closePath();
+    cxt.stroke();
+    cxt.restore();
+    setTimeout(displayTime,1000) /*每过一秒执行一次displayTime*/
+}
+ window.onload = displayTime;
+</script>
