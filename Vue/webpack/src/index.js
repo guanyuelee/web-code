@@ -1,8 +1,8 @@
 // use ES6 import js
 import $ from 'jquery'
-import './css/index.css'
-import './css/index.less'
-import logo from './images/logo.png'
+import '@/css/index.css'
+import '@/css/index.less'
+import logo from '@/images/logo.png'
 
 $(function(){
     $('#logo').attr('src', logo).attr('width', 50)
