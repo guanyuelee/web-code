@@ -13,8 +13,8 @@ module.exports = {
     mode: 'development', 
     entry: path.join(__dirname, './src/index.js'), 
     output: {
-        path: path.join(__dirname, "./dist"),   
-        filename: 'main.js'
+        path: path.join(__dirname, "dist"),   
+        filename: 'js/main.js'
     }, 
     // plugin array
     plugins: [htmlPlugin],
@@ -29,7 +29,7 @@ module.exports = {
         rules: [
             {test: /\.css$/, use: ['style-loader', 'css-loader']}, 
             {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
-            {test: /\.png|jpg|gif$/, use: 'url-loader?limit=22229'}, 
+            {test: /\.png|jpg|gif$/, use: 'url-loader?limit=22229&outputPath=images'}, 
             {test: /\.js$/, use: 'babel-loader', exclude: /node_modules/}
         ]
     }
