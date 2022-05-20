@@ -23,5 +23,13 @@ module.exports = {
         open: true, 
         host: 'localhost', 
         port: 80
+    },
+
+    module: {
+        rules: [
+            {test: /\.css$/, use: ['style-loader', 'css-loader']}, 
+            {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
+            {test: /\.png|jpg|gif$/, use: 'url-loader?limit=22229'}
+        ]
     }
 }
