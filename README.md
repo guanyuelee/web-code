@@ -9,6 +9,8 @@ git add .
 
 git commit -m "messaage"
 
+git reset HEAD file.index  # remove track. 
+
 git rm -f file
 git rm --cached file
 
@@ -19,6 +21,10 @@ git reflog --pretty=oneline
 git remote add origin https://github.com/guanyuelee/web-code.git
 git branch -M main
 git push -u origin main
+# git pull origin main --allow-unrelated-histories
+
+# git flashback
+git checkout -- file.md
 
 # branch related. 
 
